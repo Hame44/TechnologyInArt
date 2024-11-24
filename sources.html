@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Сучасні технології в мистецтві</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Джерела інформації</h1>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-home icon"></i> Головна</a>
+        <a href="digital-art.html">Цифрове мистецтво</a>
+        <a href="vr-ar.html">VR та AR</a>
+        <a href="ai-art.html">ШІ у мистецтві</a>
+        <a href="3d-printing.html">3D</a>
+        <!-- <a href="virtual-exhibitions.html">Віртуальні Виставки</a> -->
+        <!-- <a href="social-media.html">Соціальні Мережі</a> -->
+        <a href="future.html">Майбутнє мистецтва</a>
+    </nav>
+
+    <div class="frog-space">
+        <div id="ascii-frog"></div>
+    </div>
+
+    <div class="container">
+        <section class="section">
+          <p>Для написання цього сайту були використані наступні джерела:</p>
+          <p>https://uk.wikipedia.org</p>
+          <p>https://www.artdex.com/how-technology-is-changing-the-art-world-2/</p>
+          <p>https://capd.mit.edu/blog/2021/09/09/how-technology-is-changing-the-art-world/</p>
+          <p>https://www.freepik.com/premium-ai-image/psychedelic-visual-trends-surreal-antique-greek-god-sculpture-roman-column-statues-vibrant-neon-colors-creating-mesmerizing-avantgarde-fusion-past-present_176338979.htm</p>
+          <p>https://www.unian.ua/techno/neiroseti/avtor-dzhodzho-poboyuyetsya-shi-pidrobok-u-manga-industriji-12824079.html</p>
+          <p>https://www.midjourney.com</p>
+          <p>https://www.ilounge.com/articles/how-digital-technology-has-changed-the-world</p>
+          <p>https://youtu.be/fU9AIStnd3c?si=8ygYmI7JZUrgP77d</p>
+          <p>https://www.ponoko.com/blog/ponoko/ten-3d-printed-works-of-contemporary-art/</p>
+          <p>https://www.artsteps.com/view/654fb2a1c1189beaf73587f7</p>
+          <p>https://sketchfab.com</p>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2024 Сучасне мистецтво та технології</p>
+        <p>Досліджуйте, творіть, надихайтесь</p>
+        <p>Створив студент ВНТУ 4КН-24б Богачук Дмитро</p>
+        <div class="social-links">
+            <a href="https://discord.gg/2cB6Gwvqu8"><i class="fab fa-discord"></i> Discord</a>
+            <a href="https://github.com/Hame44/TechnologyInArt"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://t.me/Hame_44"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="sources.html" class="sources-btn">
+                <i class="fas fa-book"></i> Джерела
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const frogFrames = [
+`      _    _       
+     (o)--(o)      
+    /.______.\     
+    \\________/     
+   ./        \\.    
+  ( .        , )   
+   \\ \\_\\//_/ /    
+    ~~  ~~  ~~     
+`,
+`      _    _       
+     (o)--(o)      
+    /.______.\     
+    \\________/     
+      |      |     
+      |      |     
+      \\      /     
+       \\____/      
+`,
+`      _    _       
+     (o)--(o)      
+    /.______.\     
+    \\________/     
+       /\\         
+      /  \\        
+     /    \\       
+    /______\\      
+`,
+`      _    _       
+     (o)--(o)      
+    /.______.\     
+    \\________/     
+                   
+                   
+    ~~  ~~  ~~     
+`,
+`      _    _       
+     (o)--(o)      
+    /.______.\     
+    \\________/     
+                   
+                   
+    ~~  ~~  ~~     
+`
+];
+
+const frog = document.getElementById('ascii-frog');
+let currentFrame = 0;
+let position = -200;
+let jumpHeight = 0;
+
+function animateFrog() {
+    position += 1; // Зменшили крок переміщення для плавності
+
+    // Оновлюємо кадр кожні кілька пікселів
+    if (position % 10 === 0) {
+        currentFrame = (currentFrame + 1) % frogFrames.length;
+    }
+
+    // Розрахунок висоти стрибка
+    if (currentFrame === 2) {
+        jumpHeight = 80;
+    } else if (currentFrame === 3) {
+        jumpHeight = 50;
+    } else {
+        jumpHeight = 0;
+    }
+
+    // Застосування анімації
+    frog.innerText = frogFrames[currentFrame];
+    frog.style.left = `${position}px`;
+    frog.style.bottom = `${jumpHeight}px`;
+
+    // Повернення жабки на початок після виходу за екран
+    if (position > window.innerWidth) {
+        position = -200;
+    }
+
+    requestAnimationFrame(animateFrog);
+}
+
+animateFrog();
+    </script>
+</body>
+</html>

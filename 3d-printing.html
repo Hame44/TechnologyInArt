@@ -1,0 +1,167 @@
+<!-- FILE: digital-art.html -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Цифрове мистецтво</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    <!-- Three.js Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <header>
+        <h1>3D в мистецтві</h1>
+        <p>Інновації та творчість у цифрову епоху</p>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-home icon"></i> Головна</a>
+        <a href="digital-art.html">Цифрове мистецтво</a>
+        <a href="vr-ar.html">VR та AR</a>
+        <a href="ai-art.html">ШІ у мистецтві</a>
+        <a href="3d-printing.html" class="active">3D</a>
+        <!-- <a href="virtual-exhibitions.html">Віртуальні Виставки</a>
+        <a href="social-media.html">Соціальні Мережі</a> -->
+        <a href="future.html">Майбутнє мистецтва</a>
+    </nav>
+
+    <div class="container">
+        <section id="digital-art" class="section">
+            <h2>3D друк в мистецтві</h2>
+            <div class="tech-example">
+                <div class="full-height-image-box"><img src="./assets/3dprint.jpg"></div>
+                <div>
+                    <p>3D-друк відкрив нові горизонти для митців, дозволяючи створювати складні форми та інтерактивні об'єкти, які раніше були недосяжними. Завдяки цій технології художники можуть втілювати свої ідеї з безпрецедентною точністю, використовуючи різноманітні матеріали — від пластику до металів. 3D-друк не лише розширює творчі можливості, але й робить мистецтво доступнішим, дозволяючи створювати репліки та експериментальні проєкти.</p>
+                    <p>"The Gentle Cibotium Barometz" від Гізер Горам</p> 
+                       <p> Ця скульптура, створена за допомогою 3D-друку художницею Гізер Горам, є її інтерпретацією легенди про "Рослинну Вівцю"
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="digital-art" class="section">
+            <h2>3D-моделювання як мистецтво
+            </h2>
+            <div class="tech-example">
+                <p>3D-моделювання стало важливою складовою сучасного мистецтва, дозволяючи художникам створювати цифрові скульптури, віртуальні світи та інтерактивні інсталяції. Ця технологія відкриває безмежні можливості для експериментів з формами, текстурами та світлом, які важко досягти у традиційних медіа. 3D-моделі використовуються у віртуальній реальності, анімації, ігровій індустрії та навіть для створення фізичних об'єктів через 3D-друк, що поєднує цифрове і матеріальне мистецтво.</p>
+            </div>
+        </section>
+
+        <section id="digital-art" class="section">
+            <h2>Автомобіль</h2>
+            <div class="tech-example">
+                <div id="car-viewer" class="model-viewer"></div>
+                <div>
+                    <p>Інтерактивна 3D модель автомобіля. Використовуйте мишку для обертання, коліщатко для масштабування.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="future" class="section">
+            <h2>Лондон</h2>
+            <div class="tech-example">
+                <div>
+                    <p>3D модель міського пейзажу Лондона. Досліджуйте деталі архітектури.</p>
+                </div>
+                <div id="london-viewer" class="model-viewer"></div>
+            </div>
+        </section>
+
+        <section id="vr-ar" class="section">
+            <h2>Підводний човен</h2>
+            <div class="tech-example">
+                <div id="submarine-viewer" class="model-viewer"></div>
+                <div>
+                    <p>Детальна 3D модель підводного човна з можливістю інтерактивного огляду.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Сучасне мистецтво та технології</p>
+        <p>Досліджуйте, творіть, надихайтесь</p>
+        <p>Створив студент ВНТУ 4КН-24б Богачук Дмитро</p>
+        <div class="social-links">
+            <a href="https://discord.gg/2cB6Gwvqu8"><i class="fab fa-discord"></i> Discord</a>
+            <a href="https://github.com/Hame44/TechnologyInArt"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://t.me/Hame_44"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="sources.html" class="sources-btn">
+                <i class="fas fa-book"></i> Джерела
+            </a>
+        </div>
+    </footer>
+
+
+    <script>
+        // Common setup function for Three.js scenes
+        function createScene(containerId, modelPath) {
+            const container = document.getElementById(containerId);
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf5f5f5);
+
+            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(0, 1, 1);
+            scene.add(directionalLight);
+
+            // Controls
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+
+            // Load Model
+            const loader = new THREE.GLTFLoader();
+            loader.load(modelPath, (gltf) => {
+                const model = gltf.scene;
+                scene.add(model);
+
+                // Center and scale model
+                const box = new THREE.Box3().setFromObject(model);
+                const center = box.getCenter(new THREE.Vector3());
+                model.position.sub(center);
+                
+                // Fit camera to object
+                const size = box.getSize(new THREE.Vector3());
+                const maxDim = Math.max(size.x, size.y, size.z);
+                camera.position.z = maxDim * 2;
+            });
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        }
+
+        // Initialize all viewers
+        createScene('car-viewer', './assets/car.glb');
+        createScene('london-viewer', './assets/london.glb');
+        createScene('submarine-viewer', './assets/submarine.glb');
+    </script>
+
+</body>
+</html>

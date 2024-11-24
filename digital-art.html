@@ -1,0 +1,116 @@
+<!-- FILE: digital-art.html -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Цифрове мистецтво</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Цифрове мистецтво</h1>
+        <p>Інновації та творчість у цифрову епоху</p>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-home icon"></i> Головна</a>
+        <a href="digital-art.html" class="active">Цифрове мистецтво</a>
+        <a href="vr-ar.html">VR та AR</a>
+        <a href="ai-art.html">ШІ у мистецтві</a>
+        <a href="3d-printing.html">3D</a>
+        <!-- <a href="virtual-exhibitions.html">Віртуальні Виставки</a>
+        <a href="social-media.html">Соціальні Мережі</a> -->
+        <a href="future.html">Майбутнє мистецтва</a>
+    </nav>
+
+    <div class="container">
+        <section id="digital-art" class="section">
+            <h2>Нові інструменти творчості</h2>
+            <div class="tech-example">
+                <div class="full-height-image-box"><img src="./assets/dart.avif"></div>
+                <div>
+                    <p>Цифрове мистецтво відкриває безмежні можливості для художників, дозволяючи поєднувати традиційні техніки з сучасними технологіями. За допомогою графічних планшетів, таких як Wacom, і програмного забезпечення, як Adobe Photoshop, Illustrator, Procreate або Krita, художники можуть створювати унікальні роботи, маніпулюючи пікселями та векторними формами. Це дозволяє здійснювати миттєві корекції, експериментувати,створюючи роботи, які в традиційному живопису були б важко здійсненними.</p>
+                    <p>Крім того, цифрове мистецтво стає доступним для ширшої аудиторії. Платформи як Behance, DeviantArt, ArtStation дозволяють художникам ділитися своїми роботами з усього світу, а NFT (невзаємозамінні токени) дозволяють продавати цифрові твори</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="vr-ar" class="section">
+            <h2>POV-RAY</h2>
+            <div class="tech-example">
+                <div class="full-height-image-box"><img src="./assets/ray.png"></div>
+                <div>
+                    <p>POV-Ray (Persistence of Vision Raytracer) — це безкоштовна програма для створення фотореалістичних зображень та анімацій за допомогою технології трасування променів. Вона використовує текстовий опис сцени, щоб генерувати зображення, дозволяючи користувачам налаштовувати матеріали, освітлення, камери та геометрію. POV-Ray є популярним серед 3D-художників та дослідників завдяки своїй гнучкості, можливості детальної настройки та високій якості виведених зображень.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="future" class="section">
+            <h2>SVG</h2>
+            <div class="tech-example">
+                <div>
+                    <p>SVG (Scalable Vector Graphics) — це формат для зображень, який використовує векторну графіку. На відміну від растрових зображень (JPEG, PNG), SVG не залежить від роздільної здатності, що дозволяє масштабувати зображення без втрати якості. Це ідеальний формат для логотипів, іконок, схем та інших графічних елементів на веб-сайтах. SVG також підтримує анімацію та інтерактивність, що робить його популярним у веб-дизайні та розробці.</p>
+                </div>
+                <div class="full-height-image-box"><img src="./assets/svg.avif"></div>
+            </div>
+        </section>
+
+        <section id="svg-playground" class="section">
+            <h2>SVG редактор</h2>
+            <div class="code-playground">
+                <div class="code-editor">
+                    <div class="editor-header">
+                        <span>SVG код</span>
+                        <button onclick="updatePreview()" class="run-btn">
+                            <i class="fas fa-play"></i> Запустити
+                        </button>
+                    </div>
+                    <textarea id="svg-code" class="code-area"><svg width="200" height="400" viewBox="-100 -200 200 400">
+                                                            <polygon points="0,0 80,120 -80,120" fill="#234236"/>
+                                                            <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C"/>
+                                                            <polygon points="0,-80 40,0 -40,0" fill="#38755B"/>
+                                                            <rect x="-20" y="120" width="40" height="30" fill="brown"/>
+                                                            </svg></textarea>
+                </div>
+                <div class="preview-container">
+                    <div class="editor-header">
+                        <span>Результат</span>
+                    </div>
+                    <div id="svg-preview" class="preview-area"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2024 Сучасне мистецтво та технології</p>
+        <p>Досліджуйте, творіть, надихайтесь</p>
+        <p>Створив студент ВНТУ 4КН-24б Богачук Дмитро</p>
+        <div class="social-links">
+            <a href="https://discord.gg/2cB6Gwvqu8"><i class="fab fa-discord"></i> Discord</a>
+            <a href="https://github.com/Hame44/TechnologyInArt"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://t.me/Hame_44"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="sources.html" class="sources-btn">
+                <i class="fas fa-book"></i> Джерела
+            </a>
+        </div>
+    </footer>
+
+
+    <script>
+        function updatePreview() {
+            const code = document.getElementById('svg-code').value;
+            const preview = document.getElementById('svg-preview');
+            preview.innerHTML = code;
+        }
+        
+        // Initial preview
+        document.addEventListener('DOMContentLoaded', updatePreview);
+    </script>
+
+</body>
+</html>
