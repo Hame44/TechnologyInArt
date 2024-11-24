@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Сучасні технології в мистецтві</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2b2d42;
+            --secondary: #8d99ae;
+            --accent: #ef233c;
+            --light: #edf2f4;
+            --dark: #2b2d42;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" fill="none" stroke="rgba(255,255,255,0.1)" /></svg>');
+            opacity: 0.3;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            background: var(--primary);
+            color: var(--light);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .section {
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-example {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .image-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        #digital-art .image-box {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+        }
+
+        #vr-ar .image-box {
+            background: linear-gradient(45deg, #A8E6CF, #3D84A8);
+        }
+
+        #ai-art .image-box {
+            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
+        }
+
+        #3d-printing .image-box {
+            background: linear-gradient(45deg, #FF6F91, #FF9671);
+        }
+
+        #virtual-exhibitions .image-box {
+            background: linear-gradient(45deg, #00C9A7, #92FE9D);
+        }
+
+        #social-media .image-box {
+            background: linear-gradient(45deg, #845EC2, #D65DB1);
+        }
+
+        #future .image-box {
+            background: linear-gradient(45deg, #6C63FF, #3F3D56);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--secondary);
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .tech-example {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image-box {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .image-box {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .image-box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .binary-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+
+        .tech-example {
+            display: flex;
+            align-items: flex-start; /* Вирівнювання по верху */
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Блок зображення займає певну ширину */
+        .tech-example .image-box {
+            flex: 1;
+            max-width: 50%; /* Задайте бажану ширину */
+        }
+
+        /* Текстовий блок займає решту простору */
+        .tech-example > div:not(.image-box) {
+            flex: 1;
+        }
+
+        /* Адаптуємо висоту зображення */
+        .image-box img, .binary-canvas {
+            height: auto;
+            max-width: 100%;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .tech-example {
+                flex-direction: column;
+            }
+
+            .tech-example .image-box,
+            .tech-example > div:not(.image-box) {
+                max-width: 100%;
+            }
+        }
+
+        .binary-effect {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            margin-right: 2rem;
+        }
+
+        .binary-effect img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Як сучасні технології змінюють мистецтво</h1>
+        <p>Інновації та творчість у цифрову епоху</p>
+    </header>
+
+    <nav>
+        <a href="#digital-art">Цифрове мистецтво</a>
+        <a href="#vr-ar">VR та AR</a>
+        <a href="#ai-art">ШІ у мистецтві</a>
+        <a href="#3d-printing">3D Друк</a>
+        <a href="#virtual-exhibitions">Віртуальні Виставки</a>
+        <a href="#social-media">Соціальні Мережі</a>
+        <a href="#future">Майбутнє</a>
+    </nav>
+
+    <div class="container">
+        <!-- Цифрове мистецтво -->
+        <section id="digital-art" class="section">
+            <h2>Цифрове мистецтво</h2>
+            <div class="tech-example">
+                <div class="image-box"><i class="fas fa-paint-brush icon"></i>Цифрове мистецтво</div>
+                <div>
+                    <h3>Нові інструменти творчості</h3>
+                    <p>У світі цифрового мистецтва кожен піксель стає можливістю для творчості. Сучасні художники використовують графічні планшети та програмне забезпечення для створення вражаючих візуальних творів.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VR та AR -->
+        <section id="vr-ar" class="section">
+            <h2>Віртуальна та доповнена реальність</h2>
+            <div class="tech-example">
+                <div>
+                    <h3>Занурення у мистецтво</h3>
+                    <p>VR та AR розмивають межі між глядачем та мистецтвом. Тепер ви можете буквально увійти всередину картини та взаємодіяти з мистецтвом у віртуальному просторі.</p>
+                </div>
+                <div class="image-box"><img src="./assets/art1.jpg" alt="VR Art"></div>
+            </div>
+        </section>
+
+        <!-- ШІ у мистецтві -->
+        <section id="ai-art" class="section">
+            <h2>Штучний інтелект у мистецтві</h2>
+            <div class="tech-example">
+                <div class="image-box"><i class="fas fa-robot icon"></i>ШІ-творчість</div>
+                <div>
+                    <h3>Колаборація людини та машини</h3>
+                    <p>Штучний інтелект стає співавтором у створенні мистецтва. Нейромережі генерують унікальні візуальні образи, музику та поезію.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Друк -->
+        <section id="3d-printing" class="section">
+            <h2>3D Друк у Мистецтві</h2>
+            <div class="tech-example">
+                <div class="image-box"><i class="fas fa-cube icon"></i>3D Друк</div>
+                <div>
+                    <h3>Матеріалізація фантазій</h3>
+                    <p>3D друк дозволяє художникам перетворювати цифрові моделі у фізичні об'єкти. Це відкриває нові можливості для скульптури та інсталяцій.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Віртуальні Виставки -->
+        <section id="virtual-exhibitions" class="section">
+            <h2>Віртуальні Виставки</h2>
+            <div class="tech-example">
+                <div>
+                    <h3>Доступність мистецтва</h3>
+                    <p>Віртуальні виставки дозволяють людям з усього світу відвідувати галереї та музеї онлайн. Це робить мистецтво більш доступним і демократичним.</p>
+                </div>
+                <div class="image-box"><i class="fas fa-globe icon"></i>Віртуальні Галереї</div>
+            </div>
+        </section>
+
+        <!-- Соціальні Мережі -->
+        <section id="social-media" class="section">
+            <h2>Вплив Соціальних Мереж</h2>
+            <div class="tech-example">
+                <div class="image-box"><i class="fas fa-share-alt icon"></i>Соціальні Мережі</div>
+                <div>
+                    <h3>Глобальна платформа для художників</h3>
+                    <p>Соціальні мережі надають художникам можливість ділитися своїми творами з глобальною аудиторією, встановлювати зв'язок з фанатами та колегами.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Майбутнє -->
+        <section id="future" class="section">
+            <h2>Майбутнє мистецтва</h2>
+            <div class="tech-example">
+                <!-- Блок зображення переміщено перед текстом -->
+                <div class="image-box">
+                    <img src="./assets/art3.jpg" alt="Відома Картина">
+                    <canvas class="binary-canvas"></canvas>
+                </div>
+                <div>
+                    <h3>Нові Горизонти</h3>
+                    <p>Технології продовжують змінювати мистецтво, відкриваючи двері до невідомих раніше форм творчості. Від голограм до інтерактивних інсталяцій - майбутнє обіцяє бути захопливим.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Сучасне мистецтво та технології</p>
+        <p>Досліджуйте, творіть, надихайтесь</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </footer>
+    <script>
+        function createBinaryEffect() {
+            const containers = document.querySelectorAll('.binary-effect');
+            
+            containers.forEach(container => {
+                const img = container.querySelector('img');
+                const canvas = container.querySelector('.binary-canvas');
+                const ctx = canvas.getContext('2d');
+        
+                // Set proper dimensions
+                canvas.width = container.offsetWidth;
+                canvas.height = container.offsetHeight;
+        
+                function initializeEffect() {
+                    const tempCanvas = document.createElement('canvas');
+                    const tempCtx = tempCanvas.getContext('2d');
+                    
+                    tempCanvas.width = canvas.width;
+                    tempCanvas.height = canvas.height;
+                    
+                    // Draw and get image data
+                    tempCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    const imageData = tempCtx.getImageData(0, 0, canvas.width, canvas.height);
+                    
+                    // Configuration
+                    const fontSize = 10;
+                    const cols = Math.floor(canvas.width / fontSize);
+                    const rows = Math.floor(canvas.height / fontSize);
+                    const chars = ['0', '1'];
+                    
+                    // Animation state
+                    let frame = 0;
+                    const pixels = new Array(rows).fill(0).map(() => 
+                        new Array(cols).fill(0).map(() => ({
+                            char: chars[Math.floor(Math.random() * chars.length)],
+                            brightness: 0,
+                            targetBrightness: 0,
+                            revealed: false
+                        }))
+                    );
+        
+                    // Calculate brightness for each cell
+                    for(let y = 0; y < rows; y++) {
+                        for(let x = 0; x < cols; x++) {
+                            const pixelX = Math.floor(x * fontSize);
+                            const pixelY = Math.floor(y * fontSize);
+                            let avgBrightness = 0;
+                            
+                            // Sample multiple pixels for better accuracy
+                            for(let sy = 0; sy < fontSize; sy++) {
+                                for(let sx = 0; sx < fontSize; sx++) {
+                                    const i = ((pixelY + sy) * canvas.width + (pixelX + sx)) * 4;
+                                    const r = imageData.data[i];
+                                    const g = imageData.data[i + 1];
+                                    const b = imageData.data[i + 2];
+                                    avgBrightness += (r + g + b) / 3;
+                                }
+                            }
+                            
+                            pixels[y][x].targetBrightness = avgBrightness / (fontSize * fontSize);
+                        }
+                    }
+        
+                    function animate() {
+                        ctx.fillStyle = 'black';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        
+                        // Wave effect parameters
+                        const waveSpeed = 0.1;
+                        const waveHeight = rows / 2;
+                        
+                        for(let y = 0; y < rows; y++) {
+                            for(let x = 0; x < cols; x++) {
+                                const pixel = pixels[y][x];
+                                const waveY = Math.sin(frame * waveSpeed + x * 0.2) * waveHeight;
+                                
+                                if(y < waveY + rows/2) {
+                                    // Smooth transition for brightness
+                                    pixel.brightness += (pixel.targetBrightness - pixel.brightness) * 0.1;
+                                    
+                                    ctx.font = `${fontSize}px monospace`;
+                                    ctx.textAlign = 'center';
+                                    ctx.textBaseline = 'middle';
+                                    ctx.fillStyle = `rgb(0, ${pixel.brightness}, 0)`;
+                                    
+                                    // Randomly change characters
+                                    if(Math.random() < 0.05) {
+                                        pixel.char = chars[Math.floor(Math.random() * chars.length)];
+                                    }
+                                    
+                                    ctx.fillText(
+                                        pixel.char,
+                                        x * fontSize + fontSize/2,
+                                        y * fontSize + fontSize/2
+                                    );
+                                }
+                            }
+                        }
+                        
+                        frame++;
+                        requestAnimationFrame(animate);
+                    }
+                    
+                    animate();
+                }
+        
+                if(img.complete) {
+                    initializeEffect();
+                } else {
+                    img.onload = initializeEffect;
+                }
+            });
+        }
+        
+        // Start the effect
+        document.addEventListener('DOMContentLoaded', createBinaryEffect);
+        </script>
+</body>
+</html>
